@@ -9,10 +9,14 @@ public class Especie {
     private String tipoEspecie;
     private String eraGeologica;
     private String ubicacionHallazgo;
+    private String NombreEspecie;
+
+
 
 
     //constructor
-    public Especie(String nombreDescubridor, Date fechaDecubrimiento, String tipoEspecie, String eraGeologica, String ubicacionHallazgo) {
+    public Especie(String NombreEspecie,String nombreDescubridor, Date fechaDecubrimiento, String tipoEspecie, String eraGeologica, String ubicacionHallazgo) {
+        this.NombreEspecie = NombreEspecie;
         this.nombreDescubridor = nombreDescubridor;
         this.fechaDecubrimiento = fechaDecubrimiento;
         this.tipoEspecie = tipoEspecie;
@@ -25,7 +29,7 @@ public class Especie {
     public String getNombreDescubridor() {
         return nombreDescubridor;
     }
-    public Date getFechaDescuento() {
+    public Date getFechaDecubrimiento() {
         return fechaDecubrimiento;
     }
     public String getTipoEspecie() {
@@ -37,13 +41,18 @@ public class Especie {
     public String getUbicacionHallazgo() {
         return ubicacionHallazgo;
     }
-    
+        public String getNombreEspecie() {
+        return NombreEspecie;
+    }
+
+
+   
     
     //setters
     public void setNombreDescubridor(String nombreDescubridor) {
         this.nombreDescubridor = nombreDescubridor;
     }
-    public void setFechaDescuento(Date fechaDecubrimiento) {
+    public void setFechaDecubrimiento(Date fechaDecubrimiento) {
         this.fechaDecubrimiento = fechaDecubrimiento;
     }
     public void setTipoEspecie(String tipoEspecie) {
@@ -55,5 +64,8 @@ public class Especie {
     public void setUbicacionHallazgo(String ubicacionHallazgo) {
         this.ubicacionHallazgo = ubicacionHallazgo;
     }
-    
+     public void setNombreEspecie(String nombreEspecie) {
+        NombreEspecie = nombreEspecie;
+    }
+
 }

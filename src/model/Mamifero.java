@@ -8,8 +8,8 @@ public class Mamifero extends Especie {
     private String habitat;
     
     //constructor
-    public Mamifero(String nombreDescubridor, Date fechaDecubrimiento, String tipoEspecie, String eraGeologica, String ubicacionHallazgo, String dieta, String habitat) {
-        super(nombreDescubridor, fechaDecubrimiento, tipoEspecie, eraGeologica, ubicacionHallazgo);
+    public Mamifero(String nombreEspecie,String nombreDescubridor, Date fechaDecubrimiento, String tipoEspecie, String eraGeologica, String ubicacionHallazgo, String dieta, String habitat) {
+        super(nombreEspecie,nombreDescubridor, fechaDecubrimiento, tipoEspecie, eraGeologica, ubicacionHallazgo);
         this.dieta = dieta;
         this.habitat = habitat;
     }

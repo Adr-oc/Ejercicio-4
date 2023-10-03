@@ -11,14 +11,13 @@ import java.util.Date;
 public class Controlador {
 
     private List<Especie> especies = new ArrayList<Especie>();
-
-
+    
     //Registrar nueva especie
     public void registrarEspecie(Especie especie) {
         especies.add(especie);
     }
 
-    public void registrarDinosaurio(String nombreDescubridor, Date fechaDecubrimiento, String tipoEspecie, String eraGeologica, String ubicacionHallazgo, int tipoDinosaurioInt, double tamañoEstimado, double pesoEstimado) {
+    public void registrarDinosaurio(String nombreEspecie, String nombreDescubridor, Date fechaDecubrimiento, String tipoEspecie, String eraGeologica, String ubicacionHallazgo, int tipoDinosaurioInt, double tamañoEstimado, double pesoEstimado) {
         String tipoDinosaurio = "";
         if (tipoDinosaurioInt == 1) {
             tipoDinosaurio = "Carnívoro";
@@ -27,16 +26,16 @@ public class Controlador {
         } else if (tipoDinosaurioInt == 3) {
             tipoDinosaurio = "Omnívoro";
         }
-        Dinosaurio dinosaurio = new Dinosaurio(nombreDescubridor, fechaDecubrimiento, tipoEspecie, eraGeologica, ubicacionHallazgo, tipoDinosaurio, tamañoEstimado, pesoEstimado);
+        Dinosaurio dinosaurio = new Dinosaurio(nombreEspecie,nombreDescubridor, fechaDecubrimiento, tipoEspecie, eraGeologica, ubicacionHallazgo, tipoDinosaurio, tamañoEstimado, pesoEstimado);
         registrarEspecie(dinosaurio);
     }
 
-    public void registrarPlanta(String nombreDescubridor, Date fechaDecubrimiento, String tipoEspecie, String eraGeologica, String ubicacionHallazgo, String tipo, String periodoExistencia) {
-        PlantaFossil plantaFossil = new PlantaFossil(nombreDescubridor, fechaDecubrimiento, tipoEspecie, eraGeologica, ubicacionHallazgo, tipo, periodoExistencia);
+    public void registrarPlanta(String nombreEspecie,String nombreDescubridor, Date fechaDecubrimiento, String tipoEspecie, String eraGeologica, String ubicacionHallazgo, String tipo, String periodoExistencia) {
+        PlantaFossil plantaFossil = new PlantaFossil(nombreEspecie, nombreDescubridor, fechaDecubrimiento, tipoEspecie, eraGeologica, ubicacionHallazgo, tipo, periodoExistencia);
         registrarEspecie(plantaFossil);
     }
-    public void registrarMamifero(String nombreDescubridor, Date fechaDecubrimiento, String tipoEspecie, String eraGeologica, String ubicacionHallazgo, String dieta, String habitat) {
-        Mamifero mamifero = new Mamifero(nombreDescubridor, fechaDecubrimiento, tipoEspecie, eraGeologica, ubicacionHallazgo, dieta, habitat);
+    public void registrarMamifero(String nombreEspecie,String nombreDescubridor, Date fechaDecubrimiento, String tipoEspecie, String eraGeologica, String ubicacionHallazgo, String dieta, String habitat) {
+        Mamifero mamifero = new Mamifero(nombreEspecie, nombreDescubridor, fechaDecubrimiento, tipoEspecie, eraGeologica, ubicacionHallazgo, dieta, habitat);
         registrarEspecie(mamifero);
     }
 
@@ -44,11 +43,10 @@ public class Controlador {
     //Mostrar todas las especies
     public List<Especie> mostrarEspecies() {
         return especies;
+        
     }
 
-    
 
-    //Mostrar los tres dinosaurios más grandes
     public List<Especie> mostrarDinosauriosGrandes() {
         List<Especie> dinosauriosGrandes = new ArrayList<Especie>();
         for (Especie especie : especies) {
@@ -56,10 +54,24 @@ public class Controlador {
                 dinosauriosGrandes.add(especie);
             }
         }
-        return dinosauriosGrandes.subList(0, 3);
+    
+        // Encuentra el valor más grande
+        Dinosaurio especieMasGrande = (Dinosaurio) dinosauriosGrandes.get(0);
+        for (int i = 1; i < dinosauriosGrandes.size(); i++) {
+            Dinosaurio dinosaurio = (Dinosaurio) dinosauriosGrandes.get(i);
+            if (dinosaurio.getTamañoEstimado() > especieMasGrande.getTamañoEstimado()) {
+                especieMasGrande = dinosaurio;
+            }
+        }
+    
+        // Coloca el valor más grande en el primer lugar
+        dinosauriosGrandes.remove(especieMasGrande);
+        dinosauriosGrandes.add(0, especieMasGrande);
+    
+        // Devuelve los tres primeros elementos de la lista
+        return dinosauriosGrandes.subList(0, dinosauriosGrandes.size());
     }
 
-    
     //Mostrar especies segun descubridor
     public List<Especie> mostrarEspeciesDescubridor(String nombreDescubridor) {
         List<Especie> especiesDescubridor = new ArrayList<Especie>();

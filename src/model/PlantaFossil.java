@@ -9,15 +9,15 @@ public class PlantaFossil extends Especie {
 
 
         //constructor
-        public PlantaFossil(String nombreDescubridor, Date fechaDecubrimiento, String tipoEspecie, String eraGeologica, String ubicacionHallazgo, String tipo, String periodoExistencia) {
-            super(nombreDescubridor, fechaDecubrimiento, tipoEspecie, eraGeologica, ubicacionHallazgo);
+        public PlantaFossil(String nombreEspecie, String nombreDescubridor, Date fechaDecubrimiento, String tipoEspecie, String eraGeologica, String ubicacionHallazgo, String tipo, String periodoExistencia) {
+            super(nombreEspecie,nombreDescubridor, fechaDecubrimiento, tipoEspecie, eraGeologica, ubicacionHallazgo);
             this.tipo = tipo;
             this.periodoExistencia = periodoExistencia;
         }
 
 
         //getters
-        public String gettipo() {
+        public String getTipo() {
             return tipo;
         }
         public String getPeriodoExistencia() {

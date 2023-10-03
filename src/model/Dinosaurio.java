@@ -10,8 +10,8 @@ public class Dinosaurio extends Especie {
     private double pesoEstimado;
 
     //constructor
-    public Dinosaurio(String nombreDescubridor, Date fechaDescuento, String tipoEspecie, String eraGeologica, String ubicacionHallazgo, String tipo, double tamañoEstimado, double pesoEstimado) {
-            super(nombreDescubridor, fechaDescuento, tipoEspecie, eraGeologica, ubicacionHallazgo);
+    public Dinosaurio(String nombreEspecie, String nombreDescubridor, Date fechaDescuento, String tipoEspecie, String eraGeologica, String ubicacionHallazgo, String tipo, double tamañoEstimado, double pesoEstimado) {
+            super(nombreEspecie, nombreDescubridor, fechaDescuento, tipoEspecie, eraGeologica, ubicacionHallazgo);
             this.tipo = tipo;
             this.tamañoEstimado = tamañoEstimado;
             this.pesoEstimado = pesoEstimado;
